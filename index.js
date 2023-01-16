@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 // Classes
-const Employee = require('./lib/Employee')
+// const Employee = require('./lib/Employee')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
 const Manager = require('./lib/Manager')
@@ -15,7 +15,7 @@ let teamArr = [];
 const questions = [
     {
         type: 'list',
-        name: 'team',
+        name: 'role',
         message: 'Which type of team memeber would you like to add?',
         choices: ['Manager', 'Engineer', 'Intern', 'I dont want to add any more team members'],
     }
@@ -101,11 +101,12 @@ const intern = [
 //init function for user prompt
 function init() {
     inquirer.prompt(questions).then(answers => {
-        if (answers.team === 'I dont want to add any more team members') {
+        if (answers.role === 'I dont want to add any more team members') {
             console.log(teamArr);
+            writeToFile();
             return;
         }
-        if (answers.team === 'Manager') {
+        if (answers.role === 'Manager') {
             inquirer.prompt(manager).then(answers => {
                 const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
                 teamArr.push(manager);
@@ -113,7 +114,7 @@ function init() {
             })
         };
 
-        if (answers.team === 'Engineer') {
+        if (answers.role === 'Engineer') {
             inquirer.prompt(engineer).then(answers => {
                 const engineer = new Engineer(answers.name, answers.id, answers.email, answers.gitHub)
                 teamArr.push(engineer);
@@ -121,10 +122,10 @@ function init() {
             })
         };
 
-        if (answers.team === 'Intern') {
+        if (answers.role === 'Intern') {
             inquirer.prompt(intern).then(answers => {
                 const intern = new Intern(answers.name, answers.id, answers.email, answers.school)
-                teamArr.push(engineer);
+                teamArr.push(intern);
                 init()
             })
         };
@@ -137,6 +138,14 @@ init()
 
 
 
+
+function writeToFile() {
+    fs.writeFile('./dist/generatedTeam.html', generateHtml(teamArr), function (err) {
+        if (err) throw err;
+        console.log("Successfully created team")
+    })
+
+}
 
 
 

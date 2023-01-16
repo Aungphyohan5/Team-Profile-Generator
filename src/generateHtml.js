@@ -1,3 +1,5 @@
+
+
 const generateHtml = (teamArr) => {
     let newContainer = '';
     let teamContainer = [];
@@ -5,18 +7,19 @@ const generateHtml = (teamArr) => {
         switch (teamArr[i].getRole()) {
             case 'Engineer':
                 newContainer += `
-            return
+                <div>
             <div class="card border-grey mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 20rem;">
         <div class="card-header" style="height: 100px; text-align: center; font-size: 40px;">
-            <div>${teamArr[i].name}</div>
-            <div>${teamArr[i].getRole()} 🧑🏻‍💻</div>
+            <div id='name'>${teamArr[i].name}</div>
+            <div id='role'>${teamArr[i].getRole()} 🧑🏻‍💻</div>
             
             </div>
         <div class="card-body text-dark">
-            <h5 class="card-title">ID: ${teamArr[i].id}</h5><br>
-            <h5 class="card-title"><span><a href="mailto:${teamArr[i].email}">Email: ${teamArr[i].email}</a></span></h5><br>
-            <h5 class="card-title">GitHub:<span><a href="https://github.com/${teamArr[i].gitHub}"></a></span></h5><br>
+            <h5 class="card-title" id="id">ID: ${teamArr[i].id}</h5><br>
+            <h5 class="card-title" id="email"><span><a href="mailto:${teamArr[i].email}">Email: ${teamArr[i].email}</a></span></h5><br>
+            <h5 class="card-title" id="gitHub">GitHub:<span><a href="https://github.com/${teamArr[i].gitHub}"></a></span></h5><br>
 
+        </div>
         </div>
     </div>`;
 
@@ -26,7 +29,6 @@ const generateHtml = (teamArr) => {
             case 'Intern':
                 newContainer += `
                     
-                    return
             <div class="card border-grey mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 20rem;">
         <div class="card-header" style="height: 100px; text-align: center; font-size: 40px;">
             <div>${teamArr[i].name}</div>
@@ -44,6 +46,8 @@ const generateHtml = (teamArr) => {
                 break;
         }
     };
+    teamContainer.join('')
+
 
     return `
     <!DOCTYPE html>
@@ -65,6 +69,9 @@ const generateHtml = (teamArr) => {
     <header>
         <h1>My Team</h1>
     </header>
+    <div class="container" id="card-container">
+      <div class="row">
+        <div class="card-area col-12 d-flex justify-content-center mt-5">
     <div class="card border-grey mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 20rem;">
         <div class="card-header" style="height: 100px; text-align: center; font-size: 40px;">
             <div>${teamArr[0].name}</div>
@@ -75,16 +82,20 @@ const generateHtml = (teamArr) => {
             <h5 class="card-title">ID: ${teamArr[0].id}</h5><br>
             <h5 class="card-title"><span><a href="mailto:${teamArr[0].email}">Email: ${teamArr[0].email}</a></span></h5>
             <br>
-            <h5 class="card-title">office number: ${teamArr[0].officeNumber}"></a></span></h5><br>
+            <h5 class="card-title">office number: ${teamArr[0].officeNumber}</h5><br>
 
         </div>
     </div>
-    ${teamContainer}
+    ${newContainer}
 
+    </div>
+    </div>
+  </div>
 </body>
 
 </html>`
 
 }
+
 
 module.exports = generateHtml;
