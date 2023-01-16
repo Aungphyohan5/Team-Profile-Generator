@@ -7,7 +7,7 @@ const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
 const Manager = require('./lib/Manager')
 
-
+const generateHtml = require('./src/generateHtml')
 
 let teamArr = [];
 
@@ -20,7 +20,7 @@ const questions = [
         choices: ['Manager', 'Engineer', 'Intern', 'I dont want to add any more team members'],
     }
 ];
-
+// manager questions
 const manager = [
     {
         type: 'input',
@@ -39,12 +39,12 @@ const manager = [
     },
     {
         type: 'input',
-        name: 'office-number',
+        name: 'officeNumber',
         message: 'What is the team manager office number?',
     }
 ];
 
-
+//engineer questions
 const engineer = [
     {
         type: 'input',
@@ -69,7 +69,7 @@ const engineer = [
 
 ];
 
-
+// intern questions
 const intern = [
     {
 
@@ -98,7 +98,7 @@ const intern = [
     },
 ];
 
-
+//init function for user prompt
 function init() {
     inquirer.prompt(questions).then(answers => {
         if (answers.team === 'I dont want to add any more team members') {
@@ -107,7 +107,7 @@ function init() {
         }
         if (answers.team === 'Manager') {
             inquirer.prompt(manager).then(answers => {
-                const manager = new Manager(answers.name, answers.id, answers.email, answers.office - number)
+                const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
                 teamArr.push(manager);
                 init()
             })
@@ -133,7 +133,7 @@ function init() {
 }
 
 
-
+init()
 
 
 
