@@ -72,26 +72,26 @@ const engineer = [
 
 const intern = [
     {
-        when: (answers) => answers['team'] == 'Intern',
+
         type: 'Input',
         name: 'name',
         message: 'What is your intern name?',
 
     },
     {
-        when: (answers) => answers['team'] == 'Intern',
+
         type: 'input',
         name: 'id',
         message: 'What is your Intern id?',
     },
     {
-        when: (answers) => answers['team'] == 'Intern',
+
         type: 'input',
         name: 'email',
         message: 'What is your Intern email?',
     },
     {
-        when: (answers) => answers['team'] == 'Intern',
+
         type: 'input',
         name: 'school',
         message: 'What is your Intern school?',
@@ -111,7 +111,23 @@ function init() {
                 teamArr.push(manager);
                 init()
             })
-        }
+        };
+
+        if (answers.team === 'Engineer') {
+            inquirer.prompt(engineer).then(answers => {
+                const engineer = new Engineer(answers.name, answers.id, answers.email, answers.gitHub)
+                teamArr.push(engineer);
+                init()
+            })
+        };
+
+        if (answers.team === 'Intern') {
+            inquirer.prompt(intern).then(answers => {
+                const intern = new Intern(answers.name, answers.id, answers.email, answers.school)
+                teamArr.push(engineer);
+                init()
+            })
+        };
 
     })
 }
