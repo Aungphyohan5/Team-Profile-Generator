@@ -8,16 +8,16 @@ const generateHtml = (teamArr) => {
             case 'Engineer':
                 newContainer += `
                 <div>
-            <div class="card border-grey mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 20rem;">
-        <div class="card-header" style="height: 100px; text-align: center; font-size: 40px;">
+            <div class="card border-grey shadow bg-white rounded box" style="width: 18rem;">
+        <div class="card-header" style="height: 150px; text-align: center; font-size: 30px;">
             <div id='name'>${teamArr[i].name}</div>
             <div id='role'>${teamArr[i].getRole()} 🧑🏻‍💻</div>
             
             </div>
         <div class="card-body text-dark">
             <h5 class="card-title" id="id">ID: ${teamArr[i].id}</h5><br>
-            <h5 class="card-title" id="email"><span><a href="mailto:${teamArr[i].email}">Email: ${teamArr[i].email}</a></span></h5><br>
-            <h5 class="card-title" id="gitHub">GitHub:<span><a href="https://github.com/${teamArr[i].gitHub}"></a></span></h5><br>
+            <h5 class="card-title" id="email">Email:<span><a href="mailto:${teamArr[i].email}">${teamArr[i].email}</a></span></h5><br>
+            <h5 class="card-title" id="gitHub">GitHub:<span><a href="https://github.com/${teamArr[i].gitHub}" target="_blank">Github: ${teamArr[i].gitHub}</a></span></h5><br>
 
         </div>
         </div>
@@ -29,16 +29,16 @@ const generateHtml = (teamArr) => {
             case 'Intern':
                 newContainer += `
                     
-            <div class="card border-grey mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 20rem;">
-        <div class="card-header" style="height: 100px; text-align: center; font-size: 40px;">
+            <div class="ccard border-grey shadow bg-white rounded box" style="width: 18rem;">
+        <div class="card-header" style="height: 150px; text-align: center; font-size: 30px;">
             <div>${teamArr[i].name}</div>
-            <div>${teamArr[i].getRole()} 🧑🏻‍💻</div>
+            <div>${teamArr[i].getRole()} 🧑🏻</div>
             
             </div>
         <div class="card-body text-dark">
             <h5 class="card-title">ID: ${teamArr[i].id}</h5><br>
-            <h5 class="card-title"><span><a href="mailto:${teamArr[i].email}">Email: ${teamArr[i].email}</a></span></h5><br>
-            <h5 class="card-title">school: ${teamArr[i].school}"></h5><br>
+            <h5 class="card-title">Email:<span><a href="mailto:${teamArr[i].email}">${teamArr[i].email}</a></span></h5><br>
+            <h5 class="card-title">school: ${teamArr[i].school}</h5><br>
 
         </div>
     </div>`;
@@ -72,15 +72,15 @@ const generateHtml = (teamArr) => {
     <div class="container" id="card-container">
       <div class="row">
         <div class="card-area col-12 d-flex justify-content-center mt-5">
-    <div class="card border-grey mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 20rem;">
-        <div class="card-header" style="height: 100px; text-align: center; font-size: 40px;">
+    <div class="card border-grey shadow bg-white rounded box" style="width: 18rem;">
+        <div class="card-header" style="height: 150px; text-align: center; font-size: 30px;">
             <div>${teamArr[0].name}</div>
             <div>Manager 👨🏼‍💼</div>
 
         </div>
         <div class="card-body text-dark">
             <h5 class="card-title">ID: ${teamArr[0].id}</h5><br>
-            <h5 class="card-title"><span><a href="mailto:${teamArr[0].email}">Email: ${teamArr[0].email}</a></span></h5>
+            <h5 class="card-title">Email:<span><a href="mailto:${teamArr[0].email}">${teamArr[0].email}</a></span></h5>
             <br>
             <h5 class="card-title">office number: ${teamArr[0].officeNumber}</h5><br>
 
