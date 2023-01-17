@@ -17,7 +17,7 @@ const generateHtml = (teamArr) => {
         <div class="card-body text-dark">
             <h5 class="card-title" id="id">ID: ${teamArr[i].id}</h5><br>
             <h5 class="card-title" id="email">Email:<span><a href="mailto:${teamArr[i].email}">${teamArr[i].email}</a></span></h5><br>
-            <h5 class="card-title" id="gitHub">GitHub:<span><a href="https://github.com/${teamArr[i].gitHub}" target="_blank">Github: ${teamArr[i].gitHub}</a></span></h5><br>
+            <h5 class="card-title" id="gitHub">GitHub:<span><a href="https://github.com/${teamArr[i].gitHub}" target="_blank">${teamArr[i].gitHub}</a></span></h5><br>
 
         </div>
         </div>
