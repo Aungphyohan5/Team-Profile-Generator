@@ -1,5 +1,5 @@
 
-
+// Generate HTML function and template
 const generateHtml = (teamArr) => {
     let newContainer = '';
     let teamContainer = [];

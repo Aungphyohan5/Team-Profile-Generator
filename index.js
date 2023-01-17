@@ -138,7 +138,7 @@ init()
 
 
 
-
+//Generate HTML
 function writeToFile() {
     fs.writeFile('./dist/generatedTeam.html', generateHtml(teamArr), function (err) {
         if (err) throw err;

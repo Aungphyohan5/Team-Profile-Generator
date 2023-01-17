@@ -9,7 +9,7 @@ describe("Manager", () => {
     })
 });
 
-// test for getSchool()
+// test for getOfficeNumber()
 describe("getOfficeNumber", () => {
 
     it("should return the school name", () => {
